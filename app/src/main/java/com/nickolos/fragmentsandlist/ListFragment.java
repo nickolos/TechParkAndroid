@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.Inflater;
 
 public class ListFragment extends Fragment {
 
@@ -29,6 +30,8 @@ public class ListFragment extends Fragment {
 
     private MyAdapter adapter;
 
+
+    private ItemClickHandler itemClickHandler;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -80,6 +83,7 @@ public class ListFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        itemClickHandler = (ItemClickHandler) context;
         Log.d("First_Fragment", "onAttach");
     }
 
@@ -107,8 +111,12 @@ public class ListFragment extends Fragment {
 
         private List<String> mData;
 
+      //  private LayoutInflater mInflater;
+
+
         MyAdapter(List<String> data) {
-            mData = data;
+            this.mData = data;
+       //     this.mInflater = LayoutInflater.from(context);
         }
 
         @NonNull
@@ -151,13 +159,11 @@ public class ListFragment extends Fragment {
             mTextView = itemView.findViewById(R.id.tv_number_item);
             mTextView.setOnClickListener(view -> {
                 String number = ((TextView) view).getText().toString();
-                int color = ((TextView) view).getCurrentTextColor();
-                MainActivity activity = (MainActivity) getActivity();
-                if (activity != null) {
-                    activity.selectNumber(number, color);
-                }
+               int color = ((TextView) view).getCurrentTextColor();
+               itemClickHandler.selectNumber(number,color);
             });
-       }
+        }
+
     }
 
 

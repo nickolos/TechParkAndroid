@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements ItemClickHandler 
         Log.d("MAinActivity", "activity destroyed");
     }
 
-
     @Override
     public void selectNumber(String number, int color) {
         Bundle bundle = new Bundle();
