@@ -7,15 +7,15 @@
 
     <TextView
         android:id="@+id/tv_number_item"
+        style="@style/TextAppearance.AppCompat.Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:gravity="center_horizontal"
-        style="@style/TextAppearance.AppCompat.Title"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
         android:clickable="true"
         android:focusable="true"
+        android:gravity="center_horizontal"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
         android:textSize="42sp"
         tools:text="@string/string_number" />
 

@@ -9,18 +9,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.Inflater;
+
 
 public class ListFragment extends Fragment {
 
-    private static final int COUNT_PORTRAIT =3 ;
+    private static final int COUNT_PORTRAIT = 3;
 
     private static final int COUNT_LANDSCAPE = 4;
 
@@ -40,7 +42,7 @@ public class ListFragment extends Fragment {
 
         if (savedInstanceState != null) {
             currentNumber = savedInstanceState.getInt("MAX_NUMBER");
-            Log.d("First_fragment", "restored "+currentNumber);
+            Log.d("First_fragment", "restored " + currentNumber);
         } else {
             Log.d("First_fragment", "nothing to restore");
             currentNumber = MAX_NUMBER;
@@ -77,7 +79,7 @@ public class ListFragment extends Fragment {
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt("MAX_NUMBER", currentNumber);
-        Log.d("First_Fragment", "saved new add="+currentNumber);
+        Log.d("First_Fragment", "saved new add=" + currentNumber);
     }
 
     @Override
@@ -111,12 +113,9 @@ public class ListFragment extends Fragment {
 
         private List<String> mData;
 
-      //  private LayoutInflater mInflater;
-
 
         MyAdapter(List<String> data) {
             this.mData = data;
-       //     this.mInflater = LayoutInflater.from(context);
         }
 
         @NonNull
@@ -159,8 +158,8 @@ public class ListFragment extends Fragment {
             mTextView = itemView.findViewById(R.id.tv_number_item);
             mTextView.setOnClickListener(view -> {
                 String number = ((TextView) view).getText().toString();
-               int color = ((TextView) view).getCurrentTextColor();
-               itemClickHandler.selectNumber(number,color);
+                int color = ((TextView) view).getCurrentTextColor();
+                itemClickHandler.selectNumber(number, color);
             });
         }
 
